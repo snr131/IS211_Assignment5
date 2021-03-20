@@ -23,9 +23,16 @@ class Queue:
 
 class Server:
     def __init__(self, time_request_completed):
+        #self.request_queue = Queue()
         self.time_next_request_starts = time_request_completed
         self.current_request = None
-        self.time_remaining = 0
+        self.current_time = 0
+
+    def tick(self):
+        if self.current_request != None:
+            self.current_time = self.current_time + 1
+            #if self.time_remaining <= 0:
+                #self.current_task = None
 
     def busy(self):
         if self.current_request != None:
